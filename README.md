@@ -51,10 +51,10 @@ To check the returned results for the existence of additional keywords, type:
 
 ## Screenshots
 **Basic usage**
-![screen_1](https://i.imgur.com/7lNK9i8.png?1 "Gitformant Screenshot #1")
+![screen_1](https://i.imgur.com/m3OMqiF.png?1 "Gitformant Screenshot #1")
 
 **With confirmation keywords list**
-![screen_2](https://i.imgur.com/m3OMqiF.png?1 "Gitformant Screenshot #2")
+![screen_2](https://i.imgur.com/7lNK9i8.png?1 "Gitformant Screenshot #2")
 ![screen_3](https://i.imgur.com/EZ30blE.png?2 "Gitformant Screenshot #3")
 
 ## Legal
