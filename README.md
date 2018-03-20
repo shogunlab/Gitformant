@@ -13,7 +13,7 @@ Gitformant can be installed by downloading the zip file [here](https://github.co
 Gitformant works with [Python](http://www.python.org/download/) **2.7.x** on any platform.
 
 ## Features
-- Sarch Github for keywords belonging to confidential documents and discover leaks.
+- Search Github for keywords belonging to confidential documents and discover leaks.
 - Perform checks on discovered repositories to confirm or deny that they belong to a target organization.
 - Log all results for further investigation and reporting.
 
@@ -29,13 +29,13 @@ To check the returned results for the existence of additional keywords, type:
 ## Example Use Case
 1. Alice is hired by ACME Inc. to perform an Open Source Intelligence assessment and find out if confidential ACME code is being leaked online.
 2. She checks multiple search engines to see if the leaked code is being indexed, but doesn't find anything.
-3. Alice asks the client if there are interal URLs or company keywords that are frequently used in development code.
+3. Alice asks the client if there are internal URLs or company keywords that are frequently used in development code.
 4. The client gives Alice "login.acme-portal.com", the URL for their employee login portal and a link that frequently appears in the clients' private Github.
 5. Alice performs a search for the keyword using Gitformant:
 - `python gitformant.py "login.acme-portal.com"`
 6. Alice finds no results, thinking that the keyword may be too specific, she changes the query to "acme-portal.com":
 - `python gitformant.py "acme-portal.com"`
-7. Alice is surpised to find several hundred results, however many of the findings are simply junk that makes reference to "acme-portal.com" among many other online portals.
+7. Alice is surprised to find several hundred results, however many of the findings are simply junk that makes reference to "acme-portal.com" among many other online portals.
 8. Undeterred, Alice performs additional checks for ACME specific keywords in the repositories discovered using Gitformant:
 - `python gitformant.py "acme-portal.com" "ACME,www.acme.com,ACME Inc"`
 9. Alice discovers that one repository contains "acme-portal.com" and also has 32 hits for ACME, 15 hits for www.acme.com and 3 hits for ACME Inc.
