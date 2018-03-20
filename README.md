@@ -3,7 +3,7 @@
 
 [![python](https://img.shields.io/badge/python-2.7-brightgreen.svg)](https://www.python.org/downloads/) [![license](https://img.shields.io/aur/license/yaourt.svg)](https://github.com/) [![twitter](https://img.shields.io/badge/twitter-%40shogun__lab-0084b4.svg)](https://twitter.com/shogun_lab)
 
-Gitformant is an Open Source Intelligence (OSINT) tool developed by [Shogun Lab](http://www.shogunlab.com/) to aid researchers and security professionals in discovering Github repositories that may contain confidential information. It works by [searching Github](https://developer.github.com/v3/search/) for a keyword (internal URL, project specific acronym or terminology, etc) from code or internal documents. Additional checks can be performed if provided with a second list of keywords for verifying that the repository contents belong to a specific entity (ACME, www.acme.com/employee_login, Project Roadrunner, etc).
+Gitformant is an Open Source Intelligence (OSINT) tool developed by [Shogun Lab](http://www.shogunlab.com/) to aid researchers and security professionals in discovering Github repositories that may contain confidential information. It works by [searching Github](https://developer.github.com/v3/search/) for a keyword (internal URL, project specific acronym or terminology, etc) from code or internal documents. Additional checks can be performed if provided with a second list of keywords for verifying that the repository contents belong to a specific entity (ACME, acme.com/employee_login, Project Roadrunner, etc).
 
 ## Installation
 Gitformant can be installed by downloading the zip file [here](https://github.com/shogunlab/gitformant/archive/master.zip) or by cloning the [Git](https://github.com/shogunlab/gitformant.git) repository:
@@ -38,7 +38,7 @@ To check the returned results for the existence of additional keywords, type:
 7. Alice is surprised to find several hundred results, however many of the findings are simply junk that makes reference to "acme-portal.com" among many other online portals.
 8. Undeterred, Alice performs additional checks for ACME specific keywords in the repositories discovered using Gitformant:
 - `python gitformant.py "acme-portal.com" "ACME,www.acme.com,ACME Inc"`
-9. Alice discovers that one repository contains "acme-portal.com" and also has 32 hits for ACME, 15 hits for www.acme.com and 3 hits for ACME Inc.
+9. Alice discovers that one repository contains "acme-portal.com" and also has 32 hits for ACME, 15 hits for acme.com and 3 hits for ACME Inc.
 10. Alice investigates the repository and finds that it is source code for an ACME Inc. production website with hardcoded admin login credentials.
 
 
