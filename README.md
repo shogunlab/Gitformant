@@ -24,7 +24,7 @@ To perform a search on Github for an internal keyword, type:
 
 To check the returned results for the existence of additional keywords, type:
 
-`python gitformant.py "<insert internal keyword here>" "<insert confirmation keywords list here>"`
+`python gitformant.py "<insert internal keyword here>" "<insert confirmation keywords list here (comma separated)>"`
 
 ## Example Use Case
 1. Alice is hired by ACME Inc. to perform an Open Source Intelligence assessment and find out if confidential ACME code is being leaked online.
