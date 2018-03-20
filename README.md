@@ -1,7 +1,7 @@
 # Gitformant | ギトフルマント
 ![logo](https://i.imgur.com/rflqsil.png "Gitformant Logo")
 
-[![python](https://img.shields.io/badge/python-2.7-brightgreen.svg)](https://www.python.org/downloads/) [![license](https://img.shields.io/badge/license-MIT-red.svg)](https://github.com/) [![twitter](https://img.shields.io/badge/twitter-%40shogun__lab-0084b4.svg)](https://twitter.com/shogun_lab)
+[![python](https://img.shields.io/badge/python-2.7-brightgreen.svg)](https://www.python.org/downloads/) [![license](https://img.shields.io/aur/license/yaourt.svg)](https://github.com/) [![twitter](https://img.shields.io/badge/twitter-%40shogun__lab-0084b4.svg)](https://twitter.com/shogun_lab)
 
 Gitformant is an Open Source Intelligence (OSINT) tool developed by [Shogun Lab](http://www.shogunlab.com/) to aid researchers and security professionals in discovering Github repositories that may contain confidential information. It works by [searching Github](https://developer.github.com/v3/search/) for a keyword (internal URL, project specific acronym or terminology, etc) from code or internal documents. Additional checks can be performed if provided with a second list of keywords for verifying that the repository contents belong to a specific entity (ACME, www.acme.com/employee_login, Project Roadrunner, etc).
 
