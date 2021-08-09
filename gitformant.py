@@ -44,7 +44,7 @@ def main(inform_keyword, confirm_keywords=""):
     while True:
         if results_count >= 100:
             next_page_select = input("\nThere are more results to display, go to next page? (y/n) > ")
-            if next_page_select == "y":
+            if next_page_select == "y" or next_page_select == "Y":
                 try:
                     # User has chosen to see next page of results, increment PAGE_COUNT
                     PAGE_COUNT += 1
@@ -72,7 +72,7 @@ def main(inform_keyword, confirm_keywords=""):
         try:
             # Ask user if they would like to perform analysis on returned results
             perform_analysis_select = input("\nWould you like to perform a confidentiality level analysis on the repositories found? (y/n) > ")
-            if perform_analysis_select == "y":
+            if perform_analysis_select == "y" or perform_analysis_select == "Y":
                 # Perform an analysis of how confident Gitformant is of repo confidentiality
                 analysis_result = informant_analysis(repos, confirm_keywords)
                 exit_and_log(results_log, log_repo_list(), analysis_result, inform_keyword, confirm_keywords)
@@ -217,7 +217,7 @@ def github_search(query, per_page="100", page_num="1"):
 def github_confirmation(repo, confirms):
     try:
         # Sleep for 2 seconds to avoid going over the API rate limit
-        time.sleep(2)
+        time.sleep(5)
         # Github Search API endpoint, limited to specific repository code
         github_endpoint = "https://api.github.com/search/code?q=\"%s\"+repo:%s&access_token=%s" % (confirms, repo, GITHUB_API_TOKEN)
         # Make the request
