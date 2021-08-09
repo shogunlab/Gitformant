@@ -216,7 +216,7 @@ def github_search(query, per_page="100", page_num="1"):
 
 def github_confirmation(repo, confirms):
     try:
-        # Sleep for 2 seconds to avoid going over the API rate limit
+        # Sleep for 5 seconds to avoid going over the API rate limit
         time.sleep(5)
         # Github Search API endpoint, limited to specific repository code
         github_endpoint = "https://api.github.com/search/code?q=\"%s\"+repo:%s&access_token=%s" % (confirms, repo, GITHUB_API_TOKEN)
