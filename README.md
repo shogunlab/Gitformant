@@ -10,7 +10,7 @@ Gitformant can be installed by downloading the zip file [here](https://github.co
 
 `git clone https://github.com/shogunlab/gitformant.git`
 
-Gitformant works with [Python](http://www.python.org/download/) **2.7.x** on any platform.
+Gitformant works with [Python](http://www.python.org/download/) **3** on any platform.
 
 ## Features
 - Search Github for keywords belonging to confidential documents and discover leaks.
