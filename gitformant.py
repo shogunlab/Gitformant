@@ -25,25 +25,25 @@ def main(inform_keyword, confirm_keywords=""):
             # Place the results into a variable with the total number
             github_results = [count, results]
             # Output the results to the user
-            print output(github_results, PAGE_COUNT - 1)
+            print(output(github_results, PAGE_COUNT - 1))
             results_log += output(github_results, PAGE_COUNT - 1)
-            print "====== DISCOVERED REPOS ======"
-            print log_repo_list()
+            print("====== DISCOVERED REPOS ======")
+            print(log_repo_list())
             # Tell the user the total number of returned results
-            print "\nFound %s results on Github." % count
+            print("\nFound %s results on Github." % count)
         else:
             # Github API token is missing, return an error
-            print "[!] Github API token is missing!"
-            print "> Please fill in the GITHUB_API_TOKEN variable before continuing."
+            print("[!] Github API token is missing!")
+            print("> Please fill in the GITHUB_API_TOKEN variable before continuing.")
             sys.exit(0)
     except Exception as e:
-        print e
+        print(e)
 
     # Results exceeded the return limit of 100 per page, enter loop to allow
     # user to go to the next page of results
     while True:
         if results_count >= 100:
-            next_page_select = raw_input("\nThere are more results to display, go to next page? (y/n) > ")
+            next_page_select = input("\nThere are more results to display, go to next page? (y/n) > ")
             if next_page_select == "y":
                 try:
                     # User has chosen to see next page of results, increment PAGE_COUNT
@@ -52,14 +52,14 @@ def main(inform_keyword, confirm_keywords=""):
                     count, results = github_search(inform_keyword, "100", str(PAGE_COUNT))
                     github_results = [count, results]
                     # Output results of search to user
-                    print output(github_results, PAGE_COUNT - 1)
+                    print(output(github_results, PAGE_COUNT - 1))
                     results_log += output(github_results, PAGE_COUNT - 1)
                     # Decrement remaining results by 100
                     results_count -= 100
-                    print log_repo_list()
-                    print "\nResult count is now at %s" % str(results_count)
+                    print(log_repo_list())
+                    print("\nResult count is now at %s" % str(results_count))
                 except Exception as e:
-                    print e
+                    print(e)
             else:
                 # User does not want to see more results, break loop
                 break
@@ -71,7 +71,7 @@ def main(inform_keyword, confirm_keywords=""):
     if confirm_keywords != "" and results_count != 0:
         try:
             # Ask user if they would like to perform analysis on returned results
-            perform_analysis_select = raw_input("\nWould you like to perform a confidentiality level analysis on the repositories found? (y/n) > ")
+            perform_analysis_select = input("\nWould you like to perform a confidentiality level analysis on the repositories found? (y/n) > ")
             if perform_analysis_select == "y":
                 # Perform an analysis of how confident Gitformant is of repo confidentiality
                 analysis_result = informant_analysis(repos, confirm_keywords)
@@ -79,17 +79,17 @@ def main(inform_keyword, confirm_keywords=""):
             else:
                 exit_and_log(results_log, log_repo_list(), "", inform_keyword, confirm_keywords)
         except Exception as e:
-            print e
+            print(e)
     # Otherwise, just exit and ask for log output
     else:
         exit_and_log(results_log, log_repo_list(), "", inform_keyword)
 
 def exit_and_log(results_log_output, repo_list_results, informant_analysis_results="", inform_keyword="", confirm_keywords=""):
     if len(repo_list_results) != 0:
-        log_select = raw_input("\nWould you like to log results before exiting? (y/n) > ")
+        log_select = input("\nWould you like to log results before exiting? (y/n) > ")
         if log_select == "y":
             # Allow user to specify log file name
-            log_file_name = raw_input("Enter the log file name > ")
+            log_file_name = input("Enter the log file name > ")
             f = open("%s.txt" % log_file_name, "w+")
             # Record the search summary of which keywords were used in the initial query
             f.write("====== SEARCH SUMMARY ======")
@@ -107,7 +107,7 @@ def exit_and_log(results_log_output, repo_list_results, informant_analysis_resul
             if informant_analysis_results != "":
                 f.write("\n\n====== INFORMANT ANALYSIS RESULTS ======")
                 f.write(informant_analysis_results)
-            print "\nResults have been logged!"
+            print("\nResults have been logged!")
             exit_banner()
             f.close()
             sys.exit(0)
@@ -119,9 +119,9 @@ def exit_and_log(results_log_output, repo_list_results, informant_analysis_resul
         sys.exit(0)
 
 def exit_banner():
-    print "\n============================================"
-    print "Thank you for using Gitformant! Goodbye..."
-    print "============================================"
+    print("\n============================================")
+    print("Thank you for using Gitformant! Goodbye...")
+    print("============================================")
 
 def remove_dupes(seq):
    # Order preserving remove duplicates from list function
@@ -162,7 +162,7 @@ def output(data, current_page):
     return output_results
 
 def informant_analysis(repo_names, confirm_keywords):
-    print "\nStarting analysis, please wait..."
+    print("\nStarting analysis, please wait...")
     # For each unique repo, perform an analysis of how confident the assessment is of
     # the confidentiality level
     analysis_results = ""
@@ -195,7 +195,7 @@ def informant_analysis(repo_names, confirm_keywords):
             elif confidence_level == 0:
                 analysis_result += "\nConfidence level: VERY LOW (%s%%)" % confidence_level
         analysis_result += "\n"
-        print analysis_result
+        print(analysis_result)
         analysis_results += analysis_result
     return analysis_results
 
@@ -227,7 +227,7 @@ def github_confirmation(repo, confirms):
         result_count = data.get('total_count')
         # Rate limit has been hit, sleep and try again
         while result_count == None:
-            print "Rate limit is being hit, sleeping for 10 seconds..."
+            print("Rate limit is being hit, sleeping for 10 seconds...")
             time.sleep(10)
             result_count = data.get('total_count')
         # Return total number of successful confirm keyword hits
@@ -247,4 +247,4 @@ if __name__ == "__main__":
             keyword = sys.argv[1]
             result = main(keyword)
     except Exception as e:
-        print e
+        print(e)
