@@ -10,6 +10,11 @@ Gitformant can be installed by downloading the zip file [here](https://github.co
 
 Gitformant works with [Python](http://www.python.org/download/) **3** on any platform.
 
+The included `requirements.txt` file can be used to install the pre-requisites with the following:
+```
+pip install -r requirements.txt
+```
+
 ## Features
 - Search Github for keywords belonging to confidential documents and discover leaks.
 - Perform checks on discovered repositories to confirm or deny that they belong to a target organization.
@@ -41,7 +46,7 @@ To check the returned results for the existence of additional keywords, type:
 
 
 ### Misc. Usage and Performance Notes
-- **Dont' forget to add your Github API key!** Find out more [here](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
+- **Don't forget to add your Github API key!** Find out more [here](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
 - There is a rate limit on the Github Search API, to avoid going over this limit a delay is built into the calls to Github's API
     - If the rate limit is hit, the application will sleep and then resume after 10 seconds
 - Each confirmation keyword provided means an additional check is performed on every discovered repo, which means it can get **slow** FAST!
