@@ -1,6 +1,8 @@
 # Gitformant | ギトフルマント
 ![logo](https://i.imgur.com/rflqsil.png "Gitformant Logo")
 
+## Note: This project is no longer maintained.
+
 Gitformant is an Open Source Intelligence (OSINT) tool developed by [Shogun Lab](http://www.shogunlab.com/) to aid researchers and security professionals in discovering Github repositories that may contain confidential information. It works by [searching Github](https://developer.github.com/v3/search/) for a keyword (internal URL, project specific acronym or terminology, etc) from code or internal documents. Additional checks can be performed if provided with a second list of keywords for verifying that the repository contents belong to a specific entity (ACME, acme.com/employee_login, Project Roadrunner, etc).
 
 ## Installation
